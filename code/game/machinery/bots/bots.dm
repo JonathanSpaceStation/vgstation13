@@ -74,6 +74,8 @@
 
 	var/commanding_radio = /obj/item/radio/integrated/signal/bot
 
+	lighting_flags = MOVABLE_LIGHT
+
 // Adding the bots to global lists; initialize if not.
 /obj/machinery/bot/New()
 	. = ..()
@@ -546,7 +548,7 @@
 
 /obj/machinery/bot/proc/turn_off()
 	on = 0
-	set_light(0)
+	kill_light()
 
 /obj/machinery/bot/proc/explode()
 	qdel(src)
